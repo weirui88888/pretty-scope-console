@@ -1,0 +1,24 @@
+{
+  "name": "pretty-scope-console",
+  "version": "1.0.0",
+  "description": "Customized log output based on console method encapsulation. Available in browser environment and node environment.",
+  "main": "dist/index.js",
+  "types": "./index.d.ts",
+  "scripts": {
+    "build": "tsc -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/weirui88888/pretty-scope-console.git"
+  },
+  "keywords": [
+    "console",
+    "scope",
+    "typescript"
+  ],
+  "author": "ruiwei88888@163.com",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.6.3"
+  }
+}
