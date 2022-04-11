@@ -1,10 +1,21 @@
-import { PrettyConsole } from "../type.d"
+const enum ColorMap {
+  log = "#207806",
+  warn = "#be981e",
+  error = "#f01a1a",
+  info = "#1041db",
+  time = "#9397a6"
+}
 
+type ConsoleTypes = keyof typeof ColorMap
+
+interface StyleScope {
+  scope: (type: ConsoleTypes) => string
+}
 class Console {
   public scope: string
   public timers: Record<string, number>
-  public colorMap: Record<PrettyConsole.ConsoleTypes, string>
-  public styles: PrettyConsole.StyleScope
+  public colorMap: Record<ConsoleTypes, string>
+  public styles: StyleScope
 
   constructor(scope: string) {
     this.scope = scope
@@ -12,21 +23,21 @@ class Console {
     this.timers = {}
 
     this.colorMap = {
-      log: PrettyConsole.ColorMap.log,
-      warn: PrettyConsole.ColorMap.warn,
-      error: PrettyConsole.ColorMap.error,
-      info: PrettyConsole.ColorMap.info,
-      time: PrettyConsole.ColorMap.time
+      log: ColorMap.log,
+      warn: ColorMap.warn,
+      error: ColorMap.error,
+      info: ColorMap.info,
+      time: ColorMap.time
     }
 
     this.styles = {
-      scope: (type: PrettyConsole.ConsoleTypes) => {
+      scope: (type: ConsoleTypes) => {
         return `font-weight: bold;color: ${this.colorMap[type]}`
       }
     }
   }
 
-  _output(type: PrettyConsole.ConsoleTypes, message: string = "", extra: string = "", style: string) {
+  _output(type: ConsoleTypes, message: string = "", extra: string = "", style: string) {
     let { scope, styles } = this
     try {
       // @ts-ignore
@@ -90,7 +101,7 @@ class Console {
    * @param {string} scope - 计时标签
    * @returns {Console}
    * */
-  time(scope: PrettyConsole.ConsoleTypes) {
+  time(scope: ConsoleTypes) {
     if (!this.timers[scope]) {
       this.timers[scope] = new Date().getTime()
     } else {
@@ -104,7 +115,7 @@ class Console {
    * @param {string} scope - 计时标签
    * @returns {Console}
    * */
-  timeEnd(scope: PrettyConsole.ConsoleTypes) {
+  timeEnd(scope: ConsoleTypes) {
     let timer = this.timers[scope]
     let extra = ` - time - ${scope}`
     if (!timer) {
