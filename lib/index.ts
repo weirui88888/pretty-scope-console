@@ -1,4 +1,4 @@
-import { PrettyConsole } from "../index.d"
+import { PrettyConsole } from "../type.d"
 
 class Console {
   public scope: string

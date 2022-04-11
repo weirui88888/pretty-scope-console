@@ -1,15 +1,13 @@
-export namespace PrettyConsole {
-  enum ColorMap {
-    log = "#207806",
-    warn = "#be981e",
-    error = "#f01a1a",
-    info = "#1041db",
-    time = "#9397a6"
-  }
+import { PrettyConsole } from "./type.d"
 
-  type ConsoleTypes = keyof typeof ColorMap
-
-  interface StyleScope {
-    scope: (type: ConsoleTypes) => string
-  }
+export class Console {
+  constructor(name: string)
+  _output(type: PrettyConsole.ConsoleTypes, message: string, extra: string, style: string): any
+  log(message: string): any
+  warn(message: string): any
+  error(message: string): any
+  info(message: string): any
+  clear(): any
+  time(scope: PrettyConsole.ConsoleTypes): any
+  timeEnd(scope: PrettyConsole.ConsoleTypes): any
 }
