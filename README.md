@@ -12,6 +12,8 @@ class based on the console secondary package, custom log information can be impl
 
 #### Usage
 
+Support `cjs`、`esm`、`umd` module
+
 ```javascript
 # install
 npm i -S pretty-scope-console
@@ -19,8 +21,8 @@ npm i -S pretty-scope-console
 # ESM
 import Console from 'pretty-scope-console'
 
-# NODE
-const Console = require('pretty-scope-console').default
+# CJS
+const Console = require('pretty-scope-console')
 
 
 const prettyConsole = new Console(scope)
@@ -46,8 +48,6 @@ If you want to customize log information, you can try to inherit from this base 
 _This is just an example, you can customize the package according to your own actual use scene._
 
 ```javascript
-
-
 import PrettyConsole from 'pretty-scope-console'
 
 class DebuggerYourself extends PrettyConsole {

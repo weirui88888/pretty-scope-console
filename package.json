@@ -1,11 +1,19 @@
 {
   "name": "pretty-scope-console",
-  "version": "1.0.4",
-  "description": "Customized log output based on console method encapsulation. Available in browser environment and node environment.",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "version": "1.0.5",
+  "description": "Customized log output based on console method encapsulation. Available in browser and node environment.",
+  "main": "lib/console.cjs.js",
+  "module": "lib/console.esm.js",
+  "browser": "lib/console.browser.js",
+  "types": "types/index.d.ts",
+  "files": [
+    "src",
+    "types",
+    "lib"
+  ],
   "scripts": {
-    "build": "tsc -p ."
+    "build": "rollup -c",
+    "build:type": "tsc -p ."
   },
   "repository": {
     "type": "git",
@@ -20,6 +28,12 @@
   "author": "ruiwei88888@163.com",
   "license": "ISC",
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.1.0",
+    "@rollup/plugin-typescript": "^8.3.2",
+    "rollup": "^2.70.2",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "tslib": "^2.3.1",
     "typescript": "^4.6.3"
   }
 }

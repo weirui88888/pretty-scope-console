@@ -11,6 +11,7 @@ type ConsoleTypes = keyof typeof ColorMap
 interface StyleScope {
   scope: (type: ConsoleTypes) => string
 }
+
 class Console {
   public scope: string
   public timers: Record<string, number>
