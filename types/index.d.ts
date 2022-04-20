@@ -15,7 +15,7 @@ declare class Console {
     colorMap: Record<ConsoleTypes, string>;
     styles: StyleScope;
     constructor(scope: string);
-    _output(type: ConsoleTypes, message: string | undefined, extra: string | undefined, style: string): this;
+    _output(type: ConsoleTypes, message?: any, extra?: string, style?: string): this;
     /**
      * log类型
      * @param {*} message - 输出信息
@@ -45,6 +45,11 @@ declare class Console {
      * @returns {Console}
      * */
     clear(): void;
+    /**
+     * 控制台打印表格
+     * @returns {Console}
+     * */
+    table(data: any, properties?: ReadonlyArray<string>): void;
     /**
      * 开始计时
      * @param {string} scope - 计时标签

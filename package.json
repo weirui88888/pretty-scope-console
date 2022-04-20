@@ -1,6 +1,6 @@
 {
   "name": "pretty-scope-console",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "Customized log output based on console method encapsulation. Available in browser and node environment.",
   "main": "lib/console.cjs.js",
   "module": "lib/console.esm.js",

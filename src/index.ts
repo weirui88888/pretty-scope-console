@@ -38,7 +38,7 @@ class Console {
     }
   }
 
-  _output(type: ConsoleTypes, message: string = "", extra: string = "", style: string) {
+  _output(type: ConsoleTypes, message: any = "", extra: string = "", style: string = "") {
     let { scope, styles } = this
     try {
       // @ts-ignore
@@ -95,6 +95,15 @@ class Console {
    * */
   clear() {
     return console.clear()
+  }
+
+  /**
+   * 控制台打印表格
+   * @returns {Console}
+   * */
+  table(data: any, properties?: ReadonlyArray<string>) {
+    if (properties) return console.table(data, properties)
+    return console.table(data)
   }
 
   /**

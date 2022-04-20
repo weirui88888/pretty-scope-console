@@ -9,6 +9,8 @@ class based on the console secondary package, custom log information can be impl
 - error
 - info
 - time
+- clear
+- table
 
 #### Usage
 
@@ -32,6 +34,8 @@ prettyConsole.warn(msg:string)
 prettyConsole.error(msg:string)
 prettyConsole.info(msg:string)
 prettyConsole.time(msg:string)
+prettyConsole.clear()
+prettyConsole.table(data: any, properties?: ReadonlyArray<string>)
 
 then you can find a console msg with scope
 
